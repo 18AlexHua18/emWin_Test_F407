@@ -50,17 +50,13 @@ endif ()
 
 include_directories(${includes})
 include_directories(
+        Drivers/BSP/LCD
+        Drivers/BSP/LED
         Drivers/SYSTEM/delay
         Drivers/SYSTEM/sys
         Drivers/SYSTEM/usart)
-include_directories(
-        Drivers/BSP/24CXX
-        Drivers/BSP/IIC
-        Drivers/BSP/KEY
-        Drivers/BSP/LCD
-        Drivers/BSP/SRAM
-        Drivers/BSP/TIMER
-        Drivers/BSP/TOUCH)
+
+
 
 add_definitions(${defines})
 

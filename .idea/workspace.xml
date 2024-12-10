@@ -29,7 +29,40 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aad31e6e-dea9-474d-9ad1-6eba41ec1d0a" name="更改" comment="v0.0.0 模板工程，用于测试编译与调试环境&#10;添加了F4初始用内部时钟的代码，防止调试出错" />
+    <list default="true" id="aad31e6e-dea9-474d-9ad1-6eba41ec1d0a" name="更改" comment="v0.0.0 模板工程，用于测试编译与调试环境&#10;添加了F4初始用内部时钟的代码，防止调试出错">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/BSP/LCD/lcd.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/BSP/LCD/lcd.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/BSP/LCD/lcdfont.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/BSP/LED/led.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/BSP/LED/led.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/delay/delay.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/delay/delay.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/sys/sys.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/sys/sys.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/usart/usart.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drivers/SYSTEM/usart/usart.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists_template.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists_template.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/fsmc.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/fsmc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-9f68d03dd9ffe8d9ac7d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-12-10T00-58-17-0054.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-emWin_Test_F407.elf-Debug-05e5c3126f2ae8a43eda.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir/Core/Src/fsmc.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir/Core/Src/fsmc.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir/Drivers/BSP/LCD/lcd.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir/Drivers/BSP/LCD/lcd.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir/Drivers/SYSTEM/usart/usart.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir/Drivers/SYSTEM/usart/usart.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/emWin_Test_F407.map" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +91,47 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "18AlexHua18"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/18AlexHua18/emWin_Test_F407.git",
+    "accountId": "d3a72174-cb37-48cd-aaa7-7219236081c4"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -103,10 +176,11 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/014242/CLionProjects/emWin_Test_F407",
+    "last_opened_file_path": "C:/Users/014242/CLionProjects/emWin_Test_F407/Drivers",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -118,9 +192,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\014242\CLionProjects\emWin_Test_F407\Drivers" />
       <recent name="C:\Users\014242\CLionProjects\emWin_Test_F407\Core\Startup" />
       <recent name="C:\Users\014242\CLionProjects\emWin_Test_F407" />
-      <recent name="C:\Users\014242\CLionProjects\emWin_Test_F407\Drivers" />
       <recent name="C:\Users\014242\CLionProjects\emWin_Test_F407\Drivers\BSP" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -164,7 +238,7 @@
       <workItem from="1733748424747" duration="24000" />
       <workItem from="1733748450714" duration="14000" />
       <workItem from="1733748482083" duration="4396000" />
-      <workItem from="1733792296491" duration="1526000" />
+      <workItem from="1733792296491" duration="3783000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.0 模板工程，用于测试编译与调试环境&#10;添加了F4初始用内部时钟的代码，防止调试出错">
       <option name="closed" value="true" />
@@ -174,7 +248,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733793657738</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v0.0.0 模板工程，用于测试编译与调试环境&#10;添加了F4初始用内部时钟的代码，防止调试出错">
+      <option name="closed" value="true" />
+      <created>1733793897639</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733793897639</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v0.0.0 模板工程，用于测试编译与调试环境&#10;添加了F4初始用内部时钟的代码，防止调试出错">
+      <option name="closed" value="true" />
+      <created>1733793899762</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733793899762</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +274,17 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.0.0 模板工程，用于测试编译与调试环境&#10;添加了F4初始用内部时钟的代码，防止调试出错" />
@@ -199,8 +300,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Core/Src/main.c</url>
-          <line>102</line>
-          <option name="timeStamp" value="12" />
+          <line>179</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
