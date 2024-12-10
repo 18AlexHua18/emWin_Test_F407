@@ -31,6 +31,7 @@
 #include "delay.h"
 #include "led.h"
 #include "lcd.h"
+#include "lcd_testWith_touch.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,9 +83,9 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  // 先将时钟源选择为内部时钟
-  __HAL_RCC_HSI_ENABLE();
-  __HAL_RCC_SYSCLK_CONFIG(RCC_SYSCLKSOURCE_HSI);
+    // 先将时钟源选择为内部时钟
+    __HAL_RCC_HSI_ENABLE();
+    __HAL_RCC_SYSCLK_CONFIG(RCC_SYSCLKSOURCE_HSI);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -99,93 +100,43 @@ int main(void)
   MX_USART1_UART_Init();
   MX_FSMC_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t x = 0;
-  uint8_t lcd_id[12];
+    uint8_t lcd_id[12];
+    delay_init(168); /* 延时初始化 */
+    lcd_init(); /* 初始化LCD */
+    sprintf((char*)lcd_id, "LCD ID:%04X", lcddev.id); /* 将LCD ID打印到lcd_id数组 */
+    HAL_UART_Transmit(&huart1, (uint8_t*)lcd_id, 12, 0xffff); /* 串口发送LCD ID */
+    tp_dev.init(); /* 触摸屏初始化 */
 
-  HAL_Init();                             /* 初始化HAL库 */
-  sys_stm32_clock_init(336, 8, 2, 7);     /* 设置时钟,168Mhz */
-  delay_init(168);                        /* 延时初始化 */
-  usart_init(115200);                     /* 串口初始化为115200 */
-  led_init();                             /* 初始化LED */
-  lcd_init();                             /* 初始化LCD */
-  g_point_color = RED;
-  sprintf((char *)lcd_id, "LCD ID:%04X", lcddev.id);  /* 将LCD ID打印到lcd_id数组 */
+    lcd_show_string(30, 50, 200, 16, 16, "STM32", RED);
+    lcd_show_string(30, 70, 200, 16, 16, "TOUCH TEST", RED);
+    lcd_show_string(30, 90, 200, 16, 16, "ATOM@ALIENTEK", RED);
 
+    if (tp_dev.touchtype != 0xFF)
+    {
+        lcd_show_string(30, 110, 200, 16, 16, "Press KEY0 to Adjust", RED); /* 电阻屏才显示 */
+    }
+
+    delay_ms(1500);
+    load_draw_dialog();
+
+    if (tp_dev.touchtype & 0x80)
+    {
+        ctp_test(); /* 电容屏测试 */
+    }
+    else
+    {
+        rtp_test(); /* 电阻屏测试 */
+    }
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    switch (x)
+    while (1)
     {
-    case 0:
-      lcd_clear(WHITE);
-      break;
-
-    case 1:
-      lcd_clear(BLACK);
-      break;
-
-    case 2:
-      lcd_clear(BLUE);
-      break;
-
-    case 3:
-      lcd_clear(RED);
-      break;
-
-    case 4:
-      lcd_clear(MAGENTA);
-      break;
-
-    case 5:
-      lcd_clear(GREEN);
-      break;
-
-    case 6:
-      lcd_clear(CYAN);
-      break;
-
-    case 7:
-      lcd_clear(YELLOW);
-      break;
-
-    case 8:
-      lcd_clear(BRRED);
-      break;
-
-    case 9:
-      lcd_clear(GRAY);
-      break;
-
-    case 10:
-      lcd_clear(LGRAY);
-      break;
-
-    case 11:
-      lcd_clear(BROWN);
-      break;
-    }
-
-    lcd_show_string(10, 40, 240, 32, 32, "STM32", RED);
-    lcd_show_string(10, 80, 240, 24, 24, "TFTLCD TEST", RED);
-    lcd_show_string(10, 110, 240, 16, 16, "ATOM@ALIENTEK", RED);
-    lcd_show_string(10, 130, 240, 16, 16, (char *)lcd_id, RED); /* 显示LCD ID */
-    x++;
-
-    if (x == 12)
-      x = 0;
-
-    LED0_TOGGLE(); /*红灯闪烁*/
-    delay_ms(1000);
-    HAL_GPIO_TogglePin(LED0_GPIO_Port,LED0_Pin);
-    HAL_Delay(100);
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+    }
   /* USER CODE END 3 */
 }
 
@@ -245,11 +196,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+    /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    while (1)
+    {
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 

@@ -51,11 +51,17 @@ endif ()
 
 include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F4xx/Include Drivers/CMSIS/Include)
 include_directories(
-        Drivers/BSP/LCD
-        Drivers/BSP/LED
         Drivers/SYSTEM/delay
         Drivers/SYSTEM/sys
         Drivers/SYSTEM/usart)
+include_directories(
+        Drivers/BSP/24CXX
+        Drivers/BSP/IIC
+        Drivers/BSP/KEY
+        Drivers/BSP/LCD
+        Drivers/BSP/SRAM
+        Drivers/BSP/LED
+        Drivers/BSP/TOUCH)
 
 add_definitions(-DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx)
 
@@ -79,15 +85,3 @@ add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD
 Building ${BIN_FILE}")
 
 
-#include_directories(
-#        Drivers/SYSTEM/delay
-#        Drivers/SYSTEM/sys
-#        Drivers/SYSTEM/usart)
-#include_directories(
-#        Drivers/BSP/24CXX
-#        Drivers/BSP/IIC
-#        Drivers/BSP/KEY
-#        Drivers/BSP/LCD
-#        Drivers/BSP/SRAM
-#        Drivers/BSP/TIMER
-#        Drivers/BSP/TOUCH)

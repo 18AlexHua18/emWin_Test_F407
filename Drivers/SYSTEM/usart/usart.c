@@ -102,28 +102,31 @@ uint8_t g_rx_buffer[RXBUFFERSIZE];                  /* HAL库使用的串口接�
 
 UART_HandleTypeDef g_uart1_handle;                  /* UART句柄 */
 
-
-/**
- * @brief       串口X初始化函数
- * @param       baudrate: 波特率, 根据自己需要设置波特率值
- * @note        注意: 必须设置正确的时钟源, 否则串口波特率就会设置异常.
- *              这里的USART的时钟源在sys_stm32_clock_init()函数中已经设置过了.
- * @retval      无
+/*
+ * @brief       由于使用了CubeMX生成工程,这里不需要初始化
  */
-void usart_init(uint32_t baudrate)
-{
-    g_uart1_handle.Instance = USART_UX;                         /* USART1 */
-    g_uart1_handle.Init.BaudRate = baudrate;                    /* 波特率 */
-    g_uart1_handle.Init.WordLength = UART_WORDLENGTH_8B;        /* 字长为8位数据格式 */
-    g_uart1_handle.Init.StopBits = UART_STOPBITS_1;             /* 一个停止位 */
-    g_uart1_handle.Init.Parity = UART_PARITY_NONE;              /* 无奇偶校验位 */
-    g_uart1_handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;        /* 无硬件流控 */
-    g_uart1_handle.Init.Mode = UART_MODE_TX_RX;                 /* 收发模式 */
-    HAL_UART_Init(&g_uart1_handle);                             /* HAL_UART_Init()会使能UART1 */
-    
-    /* 该函数会开启接收中断：标志位UART_IT_RXNE，并且设置接收缓冲以及接收缓冲接收最大数据量 */
-    HAL_UART_Receive_IT(&g_uart1_handle, (uint8_t *)g_rx_buffer, RXBUFFERSIZE);
-}
+
+// /**
+//  * @brief       串口X初始化函数
+//  * @param       baudrate: 波特率, 根据自己需要设置波特率值
+//  * @note        注意: 必须设置正确的时钟源, 否则串口波特率就会设置异常.
+//  *              这里的USART的时钟源在sys_stm32_clock_init()函数中已经设置过了.
+//  * @retval      无
+//  */
+// void usart_init(uint32_t baudrate)
+// {
+//     g_uart1_handle.Instance = USART_UX;                         /* USART1 */
+//     g_uart1_handle.Init.BaudRate = baudrate;                    /* 波特率 */
+//     g_uart1_handle.Init.WordLength = UART_WORDLENGTH_8B;        /* 字长为8位数据格式 */
+//     g_uart1_handle.Init.StopBits = UART_STOPBITS_1;             /* 一个停止位 */
+//     g_uart1_handle.Init.Parity = UART_PARITY_NONE;              /* 无奇偶校验位 */
+//     g_uart1_handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;        /* 无硬件流控 */
+//     g_uart1_handle.Init.Mode = UART_MODE_TX_RX;                 /* 收发模式 */
+//     HAL_UART_Init(&g_uart1_handle);                             /* HAL_UART_Init()会使能UART1 */
+//
+//     /* 该函数会开启接收中断：标志位UART_IT_RXNE，并且设置接收缓冲以及接收缓冲接收最大数据量 */
+//     HAL_UART_Receive_IT(&g_uart1_handle, (uint8_t *)g_rx_buffer, RXBUFFERSIZE);
+// }
 
 /*
  * @brief       由于使用了CubeMX生成工程,这里不需要初始化
