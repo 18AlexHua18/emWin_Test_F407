@@ -20,8 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "tim.h"
 
-
-
 /* USER CODE BEGIN 0 */
 #include "btim.h"
 /* USER CODE END 0 */
@@ -69,8 +67,8 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
   {
   /* USER CODE BEGIN TIM6_MspInit 0 */
   /* USER CODE END TIM6_MspInit 0 */
-  /* TIM6 clock enable */
-  __HAL_RCC_TIM6_CLK_ENABLE();
+    /* TIM6 clock enable */
+    __HAL_RCC_TIM6_CLK_ENABLE();
   /* USER CODE BEGIN TIM6_MspInit 1 */
   HAL_NVIC_SetPriority(BTIM_TIMX_INT_IRQn, 1, 3); /* 抢占1，子优先级3，组2 */
   HAL_NVIC_EnableIRQ(BTIM_TIMX_INT_IRQn);         /* 开启ITM6中断 */
