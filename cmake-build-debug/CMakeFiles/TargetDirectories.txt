@@ -1,3 +1,0 @@
-C:/Users/014242/CLionProjects/emWin_Test_F407/cmake-build-debug/CMakeFiles/emWin_Test_F407.elf.dir
-C:/Users/014242/CLionProjects/emWin_Test_F407/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/014242/CLionProjects/emWin_Test_F407/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -18,6 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "crc.h"
+#include "rtc.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 #include "fsmc.h"
@@ -29,9 +32,13 @@
 #include "sys.h"
 #include "usart.h"
 #include "delay.h"
+#include "GUIDEMO.h"
 #include "led.h"
 #include "lcd.h"
 #include "lcd_testWith_touch.h"
+#include "malloc.h"
+#include "btim.h"
+#include "GUI_Calibration.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,39 +106,30 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_FSMC_Init();
+  MX_CRC_Init();
+  MX_RTC_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
     uint8_t lcd_id[12];
     delay_init(168); /* 延时初始化 */
     lcd_init(); /* 初始化LCD */
     sprintf((char*)lcd_id, "LCD ID:%04X", lcddev.id); /* 将LCD ID打印到lcd_id数组 */
     HAL_UART_Transmit(&huart1, (uint8_t*)lcd_id, 12, 0xffff); /* 串口发送LCD ID */
-    tp_dev.init(); /* 触摸屏初始化 */
 
-    lcd_show_string(30, 50, 200, 16, 16, "STM32", RED);
-    lcd_show_string(30, 70, 200, 16, 16, "TOUCH TEST", RED);
-    lcd_show_string(30, 90, 200, 16, 16, "ATOM@ALIENTEK", RED);
-
-    if (tp_dev.touchtype != 0xFF)
-    {
-        lcd_show_string(30, 110, 200, 16, 16, "Press KEY0 to Adjust", RED); /* 电阻屏才显示 */
-    }
-
-    delay_ms(1500);
-    load_draw_dialog();
-
-    if (tp_dev.touchtype & 0x80)
-    {
-        ctp_test(); /* 电容屏测试 */
-    }
-    else
-    {
-        rtp_test(); /* 电阻屏测试 */
-    }
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+
+    btim_timx_int_init(999, 83); /* 定时1ms提供emwin时基 */
+    __HAL_RCC_CRC_CLK_ENABLE();
+    tp_init();
+    GUI_Init();
+    GUIDEMO_Main(); /* 运行emwin例程 */
+    // emwin_calibration();
     while (1)
+
     {
     /* USER CODE END WHILE */
 
@@ -157,8 +155,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;

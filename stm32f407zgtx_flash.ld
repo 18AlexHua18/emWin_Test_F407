@@ -64,6 +64,7 @@ MEMORY
 RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 128K
 CCMRAM (xrw)      : ORIGIN = 0x10000000, LENGTH = 64K
 FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 1024K
+EXT_SRAM (xrw)  : ORIGIN = 0x68000000, LENGTH = 1M
 }
 
 /* Define output sections */
@@ -193,7 +194,11 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
 
-  
+  .extsram (NOLOAD) :
+  {
+      *(.extsram) /* 显式放到片外 SRAM 的变量 */
+      *(.extsram.*)
+  } >EXT_SRAM
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

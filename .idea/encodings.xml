@@ -3,5 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Drivers/BSP/LCD/lcd.c" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Drivers/BSP/LCD/lcd.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Drivers/BSP/SRAM/sram.c" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Drivers/BSP/SRAM/sram.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Middlewares/readme.txt" charset="UTF-8" />
   </component>
 </project>
