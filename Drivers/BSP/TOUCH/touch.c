@@ -202,7 +202,7 @@ static void tp_read_xy(uint16_t *x, uint16_t *y)
  * @param       x,y: 读取到的坐标值
  * @retval      0, 失败; 1, 成功;
  */
-static uint8_t tp_read_xy2(uint16_t *x, uint16_t *y)
+uint8_t tp_read_xy2(uint16_t *x, uint16_t *y)
 {
     uint16_t x1, y1;
     uint16_t x2, y2;

@@ -50,11 +50,23 @@ endif ()
 
 include_directories(${includes})
 include_directories(
+        Drivers/BSP/24CXX
+        Drivers/BSP/IIC
+        Drivers/BSP/KEY
         Drivers/BSP/LCD
         Drivers/BSP/LED
+        Drivers/BSP/TOUCH
+        Drivers/BSP/TIMER
         Drivers/SYSTEM/delay
         Drivers/SYSTEM/sys
-        Drivers/SYSTEM/usart)
+        Drivers/SYSTEM/usart
+        myMiddlewares/emWin/Config
+        myMiddlewares/emWin/emWin_Demo
+        myMiddlewares/emWin/inc
+        myMiddlewares/emWin/OS
+)
+link_directories(myMiddlewares/emWin/Lib)
+link_libraries(STemWin_CM4_wc32)
 
 
 

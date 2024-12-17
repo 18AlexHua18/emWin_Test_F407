@@ -19,9 +19,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
 
 #Uncomment for hardware floating point
-#add_compile_definitions(ARM_MATH_CM4;ARM_MATH_MATRIX_CHECK;ARM_MATH_ROUNDING)
-#add_compile_options(-mfloat-abi=hard -mfpu=fpv4-sp-d16)
-#add_link_options(-mfloat-abi=hard -mfpu=fpv4-sp-d16)
+add_compile_definitions(ARM_MATH_CM4;ARM_MATH_MATRIX_CHECK;ARM_MATH_ROUNDING)
+add_compile_options(-mfloat-abi=hard -mfpu=fpv4-sp-d16)
+add_link_options(-mfloat-abi=hard -mfpu=fpv4-sp-d16)
 
 #Uncomment for software floating point
 #add_compile_options(-mfloat-abi=soft)
@@ -51,21 +51,27 @@ endif ()
 
 include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F4xx/Include Drivers/CMSIS/Include)
 include_directories(
-        Drivers/SYSTEM/delay
-        Drivers/SYSTEM/sys
-        Drivers/SYSTEM/usart)
-include_directories(
         Drivers/BSP/24CXX
         Drivers/BSP/IIC
         Drivers/BSP/KEY
         Drivers/BSP/LCD
-        Drivers/BSP/SRAM
         Drivers/BSP/LED
-        Drivers/BSP/TOUCH)
+        Drivers/BSP/TOUCH
+        Drivers/BSP/TIMER
+        Drivers/SYSTEM/delay
+        Drivers/SYSTEM/sys
+        Drivers/SYSTEM/usart
+        myMiddlewares/emWin/Config
+        myMiddlewares/emWin/emWin_Demo
+        myMiddlewares/emWin/inc
+        myMiddlewares/emWin/OS
+)
+link_directories(myMiddlewares/emWin/Lib)
+link_libraries(STemWin_CM4_wc32)
 
 add_definitions(-DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx)
 
-file(GLOB_RECURSE SOURCES "Core/*.*" "Drivers/*.*")
+file(GLOB_RECURSE SOURCES "Core/*.*" "Drivers/*.*" "myMiddlewares/*.*")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F407ZGTX_FLASH.ld)
 
@@ -75,6 +81,7 @@ add_link_options(-T ${LINKER_SCRIPT})
 
 add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
 
+
 set(HEX_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.hex)
 set(BIN_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.bin)
 
@@ -83,5 +90,3 @@ add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD
         COMMAND ${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:${PROJECT_NAME}.elf> ${BIN_FILE}
         COMMENT "Building ${HEX_FILE}
 Building ${BIN_FILE}")
-
-
